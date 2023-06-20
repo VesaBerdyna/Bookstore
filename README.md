@@ -11,3 +11,4 @@ Features
 - Multitenancy Support: The application supports multiple tenants, allowing separate book collections for different organizations.
 - Authentication: Users can securely access the application using authentication methods such as OAuth, JWT, and cookies.
 - Scalability: The application is designed to handle a growing number of users and provide a seamless experience.
+-
