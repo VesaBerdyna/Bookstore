@@ -6,4 +6,6 @@ namespace Acme.BookStore.Books;
 public class AuthorLookupDto : EntityDto<Guid>
 {
     public string Name { get; set; }
+       public DateTime BirthDate { get; set; }
+
 }

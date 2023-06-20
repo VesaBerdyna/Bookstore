@@ -17,6 +17,7 @@ export const environment = {
     scope: 'offline_access BookStore',
     requireHttps: true,
   },
+  
   apis: {
     default: {
       url: 'https://localhost:44397',

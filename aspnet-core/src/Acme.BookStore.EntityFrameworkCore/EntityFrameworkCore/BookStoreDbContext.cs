@@ -27,9 +27,9 @@ public class BookStoreDbContext :
     ITenantManagementDbContext
 {
     /* Add DbSet properties for your Aggregate Roots / Entities here. */
+    public DbSet<Author> Authors { get; set; }
 
     public DbSet<Book> Books { get; set; }
-    public DbSet<Author> Authors { get; set; }
 
     #region Entities from the modules
 
@@ -94,7 +94,11 @@ public class BookStoreDbContext :
                 BookStoreConsts.DbSchema);
             b.ConfigureByConvention(); //auto configure for the base class props
             b.Property(x => x.Name).IsRequired().HasMaxLength(128);
+
+            // ADD THE MAPPING FOR THE RELATION
+            b.HasOne<Author>().WithMany().HasForeignKey(x => x.AuthorId).IsRequired();
         });
+        
 
         builder.Entity<Author>(b =>
         {
