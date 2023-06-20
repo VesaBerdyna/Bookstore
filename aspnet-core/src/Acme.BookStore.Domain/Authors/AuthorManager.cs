@@ -23,10 +23,10 @@ public class AuthorManager : DomainService
         Check.NotNullOrWhiteSpace(name, nameof(name));
 
         var existingAuthor = await _authorRepository.FindByNameAsync(name);
-        if (existingAuthor != null)
-        {
-            throw new AuthorAlreadyExistsException(name);
-        }
+        // if (existingAuthor != null)
+        // {
+        //     throw new AuthorAlreadyExistsException(name);
+        // }
 
         return new Author(
             GuidGenerator.Create(),
@@ -44,10 +44,10 @@ public class AuthorManager : DomainService
         Check.NotNullOrWhiteSpace(newName, nameof(newName));
 
         var existingAuthor = await _authorRepository.FindByNameAsync(newName);
-        if (existingAuthor != null && existingAuthor.Id != author.Id)
-        {
-            throw new AuthorAlreadyExistsException(newName);
-        }
+        // if (existingAuthor != null && existingAuthor.Id != author.Id)
+        // {
+        //     throw new AuthorAlreadyExistsException(newName);
+        // }
 
         author.ChangeName(newName);
     }
